@@ -1,0 +1,31 @@
+{
+    "name": "khayrullin/laravel-keycloak-web-guard",
+    "description": "Simple Keycloak Guard to Laravel Web Routes",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "keycloak",
+        "jwt",
+        "authentication"
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "laravel/framework": "^12.0",
+        "guzzlehttp/guzzle": "^7.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Khayrullin\\KeycloakWebGuard\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Khayrullin\\KeycloakWebGuard\\KeycloakWebGuardServiceProvider"
+            ],
+            "aliases": {
+                "KeycloakWeb": "Khayrullin\\KeycloakWebGuard\\Facades\\KeycloakWeb"
+            }
+        }
+    }
+}
