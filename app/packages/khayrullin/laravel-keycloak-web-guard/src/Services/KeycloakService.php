@@ -708,12 +708,19 @@ class KeycloakService
     /**
      * Validate State from Session
      *
-     * @return void
+     * @return bool
      */
     public function validateState($state)
     {
         $challenge = session()->get(self::KEYCLOAK_SESSION_STATE);
-        return (!empty($state) && !empty($challenge) && $challenge === $state);
+        return (
+            !empty($state)
+            && !empty($challenge)
+            && (
+                $challenge === $state
+                || str_starts_with($state, $challenge)
+            )
+        );
     }
 
     /**
